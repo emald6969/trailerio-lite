@@ -143,8 +143,8 @@ async function resolveAppleTV(imdbId, meta) {
     // TV shows use /show/ path, movies use /movie/ path
     const isShow = meta?.wikidataIds?.isAppleTvShow;
     const pageUrl = isShow
-      ? `https://tv.apple.com/us/show/${appleId}`
-      : `https://tv.apple.com/us/movie/${appleId}`;
+      ? `https://tv.apple.com/fr/show/${appleId}`
+      : `https://tv.apple.com/fr/movie/${appleId}`;
 
     const pageRes = await fetchWithTimeout(
       pageUrl,
@@ -417,7 +417,7 @@ async function resolveIMDb(imdbId) {
       `https://www.imdb.com/title/${imdbId}/`,
       { headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-        'Accept-Language': 'en-US,en'
+        'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8'
       }}
     );
     const html = await pageRes.text();
@@ -429,7 +429,7 @@ async function resolveIMDb(imdbId) {
       `https://www.imdb.com/video/${videoMatch[1]}/`,
       { headers: {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-        'Accept-Language': 'en-US,en'
+        'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8'
       }}
     );
     const videoHtml = await videoRes.text();
